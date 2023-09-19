@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "ng build --prod --aot --no-verify"
+    "heroku-postbuild": "ng build --prod --aot"
   },
   "private": true,  
   "engines": {
