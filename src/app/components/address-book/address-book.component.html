@@ -1,0 +1,41 @@
+<div class="address_comp">
+    <h3>Address book</h3>
+    <div *ngIf="isLoading else loadedContent">
+        <mat-progress-bar color="Primary" mode="indeterminate" class="w-100"></mat-progress-bar>
+    </div>
+    <ng-template #loadedContent>
+        <mat-nav-list *ngIf="addressBook.length > 0; else noRecords">
+            <em>Pick your delivery address by selecting below listed address</em>
+            <mat-list-item class="address" *ngFor="let address of addressBook" [ngClass]="{'selected box-s-b': address.isSelected}" (click)="selectAddress(address)">
+                <div fxLayout="column wrap">
+                    <div fxLayout="row wrap">
+
+                        <mat-icon style="padding-right: 20px; line-height: 30px;" *ngIf="address.title.toLowerCase() === 'home' else other">
+                            home</mat-icon>
+                        <ng-template #other>
+                            <mat-icon style="padding-right: 20px; line-height: 30px;">
+                                person_pin_circle</mat-icon>
+                        </ng-template>
+
+                        <div>
+                            <h3 style="margin: 0;">{{address.title || 'Others'}}</h3>
+                            <div *ngIf="address.landmark">Landmark - {{address.landmark}}</div>
+                            <address> {{address.description}} </address>
+                        </div>
+                        <button class="delete-btn" mat-icon-button (click)="onDelete(address)">
+              <mat-icon>delete</mat-icon>
+            </button>
+                    </div>
+                    <div class="w-100">
+                        <mat-checkbox class="mt-3 ml-3" [disabled]="address.isPrimary" [(ngModel)]="address.isPrimary" color="primary" (ngModelChange)="updatePrimary(address)">
+                            Primary</mat-checkbox>
+
+                    </div>
+                </div>
+            </mat-list-item>
+        </mat-nav-list>
+        <ng-template #noRecords>
+            No Saved Address Found
+        </ng-template>
+    </ng-template>
+</div>

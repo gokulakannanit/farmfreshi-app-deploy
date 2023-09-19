@@ -1,0 +1,19 @@
+<div class="mb-5 {{size}} {{bg}}" style="position: relative;" (click)="!noUpload && thumbInput.click()">
+    <mat-progress-spinner *ngIf="!noUpload" class="thumb-spinner" color="secondary" mode="determinate" [value]="progress" class="progress_avatar {{size}}">
+    </mat-progress-spinner>
+    <button mat-mini-fab color="primary" *ngIf="!noUpload" class="upload_avatar_btn" type="button" mat-icon-button matSuffix>
+    <mat-icon>attach_file</mat-icon>
+  </button>
+    <input hidden (change)="selectThumb($event)" #thumbInput type="file" id="file" accept="image/*" />
+    <a class="avatar {{size}} {{bg}}" *ngIf="avatar else dummyAvatar">
+        <img [src]="avatar" />
+    </a>
+    <ng-template #dummyAvatar>
+        <a class="avatar {{size}} {{bg}}">
+            <img src="/assets/images/avatar_female.png" *ngIf="gender === 'female' else maleAvatar" />
+            <ng-template #maleAvatar>
+                <img src="/assets/images/avatar_male.png" />
+            </ng-template>
+        </a>
+    </ng-template>
+</div>

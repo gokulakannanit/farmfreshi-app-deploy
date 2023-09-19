@@ -1,0 +1,33 @@
+:host {
+    display: block;
+}
+
+.title {
+    padding: 20px 20px 0;
+    margin: 0;
+}
+
+.cart {
+    width: 400px;
+    position: relative;
+    background-color: var(--lightgray);
+}
+
+mat-form-field,
+.txt-width {
+    max-width: 320px;
+}
+
+.sm ::ng-deep .mat-step-header {
+    padding: 10px;
+}
+
+.sm ::ng-deep .mat-vertical-content-container {
+    margin-left: 20px;
+}
+
+.edit-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}

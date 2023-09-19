@@ -1,0 +1,36 @@
+<div fxLayout="row" fxLayoutAlign="start stretch" ngClass.lt-sm="sm" class="box-s-b bg-white mb-5 mt-3">
+    <div class="p-1" style="position: relative;">
+        <h2 class="title">Checkout</h2>
+        <mat-vertical-stepper linear="true" #stepper>
+            <mat-step *ngIf="!isLoggedIn">
+                <ng-template matStepLabel>
+                    <span>Enter Mobile Number</span>
+                    <span class="ml-2" *ngIf="stepper.selectedIndex >= 1">
+            <i *ngIf="mobile else noMobile">+91 {{mobile}}</i>
+            <ng-template #noMobile>
+              <i>Mobile number not given</i>
+            </ng-template>
+          </span>
+                </ng-template>
+                <app-verify-mobile (complete)="completeMobile($event)"></app-verify-mobile>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>
+                    <div>Delivery Address</div>
+                </ng-template>
+                <app-address-flow (complete)="completeAddress($event)"></app-address-flow>
+            </mat-step>
+            <mat-step [stepControl]="">
+                <ng-template matStepLabel>Select Slot For Delivery</ng-template>
+                <app-schedule-delivery #deliverySlot (complete)="completeSchedule($event)"></app-schedule-delivery>
+            </mat-step>
+            <mat-step [stepControl]="">
+                <ng-template matStepLabel>Payment</ng-template>
+                <payment-gateway></payment-gateway>
+            </mat-step>
+        </mat-vertical-stepper>
+    </div>
+    <div class="cart" fxHide.lt-lg>
+        <cart-content></cart-content>
+    </div>
+</div>

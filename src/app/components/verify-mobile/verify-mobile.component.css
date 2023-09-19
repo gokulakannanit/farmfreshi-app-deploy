@@ -1,0 +1,7 @@
+:host {
+    display: block;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+    display: none;
+}

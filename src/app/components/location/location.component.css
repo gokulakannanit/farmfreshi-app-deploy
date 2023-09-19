@@ -1,0 +1,58 @@
+:host {
+    display: block;
+}
+
+.location_selector:not(.sm) {
+    width: 360px;
+}
+
+.location_selector mat-list-item {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.location_selector ::ng-deep .mat-nav-list .mat-list-item .mat-list-item-content {
+    justify-content: center;
+}
+
+.location_selector ::ng-deep .mat-nav-list .mat-list-item:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.location_selector h3 {
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+.location_selector mat-list {
+    position: absolute;
+    z-index: 1;
+    top: 35px;
+    left: 0;
+    background-color: white;
+    width: 100%;
+    min-width: 300px;
+    max-height: 130px;
+    overflow-y: auto;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.location_selector ::ng-deep .mat-list-item {
+    height: 40px;
+}
+
+.location_selector ::ng-deep .mat-list-item:hover {
+    background-color: #efefef;
+}
+
+.location_selector ::ng-deep .mat-list-item .mat-list-item-content {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    line-height: 40px;
+    height: 40px;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}

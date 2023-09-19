@@ -1,0 +1,55 @@
+<div class="h-100" [ngClass]="{'inside': !sidebar}" ngClass.lt-sm="sm">
+    <div class="h-100" fxLayout="column" fxLayoutAlign="stretch stretch" *ngIf="cartList.length>0 else emptyCart">
+        <div class="price_box p-1 pt-2" [ngClass]="{'shakeit': cartUpdated}">
+            <div fxLayout="row" FxLayoutAlign="start start">
+                <label fxFlex="auto" class="text-right pr-2">Total Price :</label>
+                <span style="width:70px;">{{total | currency:'INR'}}</span>
+            </div>
+            <div fxLayout="row" FxLayoutAlign="start start" *ngIf="deliveryCharge > 0">
+                <label fxFlex="auto" class="text-right pr-2">Delivery charge :</label>
+                <span class="text-warn" style="width:70px;">+ {{20 | currency:'INR'}}</span>
+            </div>
+        </div>
+        <mat-list class="cart-list">
+            <mat-list-item class="p-1" tabindex="0" fxLayout="row" fxLayoutAlign="start start" *ngFor="let item of cartList">
+                <img class="p-1 mr-2" [src]="item.product.thumb" [alt]="item.product.title" width="70px" height="70px" style="object-fit: cover;border-radius: 6px;border:2px solid rgba(0,0,0,0.1);margin-left: -10px;" />
+                <div class="text-left desc" fxFlex="auto">
+                    <div class="bold">{{ item.product.title }}</div>
+                    <div>{{item.product.unit}} {{item.product.unitType}}</div>
+                    <div>
+                        <button mat-icon-button tabindex="0" [removeCart]="item.product">
+              <mat-icon>remove_circle_outline</mat-icon>
+            </button>
+                        <span>{{item.count}}</span>
+                        <button mat-icon-button tabindex="0" [addCart]="item.product">
+              <mat-icon>add_circle_outline</mat-icon>
+            </button>
+                        <span class="p-2">x</span>
+                        <span class="p-2">{{item.product.price | currency:'INR' }}</span>
+                        <span style="position:absolute;right:10px;" class="pl-4">{{item.product.price * item.count | currency:'INR' }}</span>
+                    </div>
+                </div>
+                <button class="remove-cart" mat-icon-button [removeProduct]="item.product">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-list-item>
+        </mat-list>
+        <div class="p-3 bg-white box-s-t checkout_button">
+            <button class="w-100 text-left" mat-raised-button color="primary" (click)="onClose(true)">Checkout<span
+          style="position: absolute;right: 10px;">{{total | currency:'INR'}}</span></button>
+        </div>
+    </div>
+    <ng-template #emptyCart>
+        <div fxLayout="column" fxLayoutAlign="stretch stretch" class="empty_cart h-100">
+            <div class="text-center sidebar-extendable">
+                <mat-icon>shopping_cart</mat-icon>
+                <h2 class="mt-2">Your cart is empty</h2>
+                <p class="pl-4 pr-4">Fill in your shopping basket, get everything at your door step and enjoy shopping with us.
+                </p>
+            </div>
+            <div class="footer bg-white box-s-t p-3">
+                <button class="w-100" mat-raised-button color="primary" (click)="onClose()">Go to shopping</button>
+            </div>
+        </div>
+    </ng-template>
+</div>

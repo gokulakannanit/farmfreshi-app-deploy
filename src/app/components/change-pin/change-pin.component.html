@@ -1,0 +1,22 @@
+<form class="mt-2 text-center" novalidate (submit)="changePin()" #changePinForm="ngForm">
+    <h3>Change New Pin</h3>
+    <p class="alert alert-danger mt-1 mb-1 text-left" *ngIf="changePinForm.valid && errorMessage && !isLoading">
+        {{ errorMessage }}
+    </p>
+
+    <div class="d-inline-block text-left w-75">
+        <otp-input [value]="user.pin" (change)="onPinChange($event)" placeholder="Enter Current Pin"></otp-input>
+        <otp-input [value]="user.newPin" (change)="onNewPinChange($event)" placeholder="Enter New Pin"></otp-input>
+
+        <input type="hidden" required [(ngModel)]="user.pin" pattern="^([0-9]{4})$" name="pin" />
+        <input type="hidden" required [(ngModel)]="user.newPin" pattern="^([0-9]{4})$" name="newPin" />
+    </div>
+
+    <div class="step-actions mt-3 text-center">
+        <button mat-raised-button color="primary" [disabled]="changePinForm.invalid" class="ml-2 pr-2">
+      <span *ngIf="isLoading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+      <span>VERIFY</span>
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+    </div>
+</form>

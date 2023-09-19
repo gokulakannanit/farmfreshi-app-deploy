@@ -1,0 +1,27 @@
+<div class="location_selector text-center" ngClass.xs="sm">
+    <div class="container pl-4 pr-4">
+        <div class="text-right" *ngIf="isLoggedIn">
+            <button mat-raised-button (click)="openAddressbook()" color="primary" title="Select from stored address">
+        <mat-icon>contact_mail</mat-icon>
+      </button>
+        </div>
+        <app-city-selector #citySelection tabindex="0" (change)="onCitySelection($event)"></app-city-selector>
+        <mat-form-field>
+            <input matInput placeholder="Type your location and hit enter" [(ngModel)]="searchTxt" (keyup)="onSearch($event)" />
+            <a matSuffix mat-button color="primary" (click)="setCurrentLocation()">
+                <mat-icon>gps_fixed</mat-icon>Locate Me
+            </a>
+            <mat-list role="list" *ngIf="locations.length > 0">
+                <mat-list-item role="listitem" tabindex="0" *ngFor="let location of locations" [title]="location.description" (click)="selectItem(location)">
+                    {{location.description}}
+                </mat-list-item>
+            </mat-list>
+        </mat-form-field>
+        <p class="text-center">--- OR ---</p>
+        <div class="text-center">
+            <a mat-button color="primary" (click)="openMap()">
+                <mat-icon>gps_fixed</mat-icon>Choose From Map
+            </a>
+        </div>
+    </div>
+</div>

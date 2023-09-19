@@ -1,0 +1,89 @@
+<style>
+     :host {
+        display: block;
+        position: relative;
+    }
+    
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .inside ul>li {
+        width: 100%;
+    }
+    
+    .carousel-wrapper {
+        margin: 10px 45px;
+        overflow: hidden;
+    }
+    
+    .carousel-wrapper.inside {
+        margin: 0;
+    }
+    
+    .carousel-wrapper.sm:not(.inside) {
+        margin: 0;
+    }
+    
+    .carousel-inner {
+        display: flex;
+        overflow: visible;
+        width: auto;
+    }
+    
+    .sm .carousel-inner {
+        width: 100%;
+        overflow-y: hidden;
+        overflow-x: auto;
+    }
+    
+    .sm .carousel-inner li {
+        margin: 0 10px;
+    }
+    
+    .navigation button {
+        position: absolute;
+        top: calc(50% - 25px);
+        left: 5px;
+    }
+    
+    .navigation .mat-mini-fab {
+        background-color: rgba(0, 0, 0, 0.7);
+        color: var(--white);
+    }
+    
+    .navigation button.next {
+        left: initial;
+        right: 5px;
+    }
+    
+    .navigation.sm:not(.inside) button {
+        width: 20px;
+        border-radius: 0;
+    }
+    
+    .navigation.sm:not(.inside) {
+        margin: 10px 0px;
+    }
+    
+    .navigation.sm:not(.inside) button mat-icon {
+        margin: 0;
+    }
+</style>
+<section class="carousel-wrapper" [ngStyle]="carouselWrapperStyle" ngClass.lt-sm="sm" [ngClass]="{ inside: navigationInside }" #carouselWrapper>
+    <ul #carouselInner class="carousel-inner" #carousel [fxLayoutAlign]="layoutAlign">
+        <li *ngFor="let item of items" class="carouselItem" #carouseItem tabindex="0">
+            <ng-container [ngTemplateOutlet]="item"></ng-container>
+        </li>
+    </ul>
+</section>
+<div fxHide.xs *ngIf="showControls" class="navigation" [ngClass]="{ inside: navigationInside }" ngClass.lt-sm="sm">
+    <button (click)="prev()" mat-mini-fab color="secondary" aria-label="Next banner" *ngIf="showPrev">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+    <button (click)="next()" class="next" mat-mini-fab color="secondary" aria-label="Previous banner" *ngIf="showNext">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</div>

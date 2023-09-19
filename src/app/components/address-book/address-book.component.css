@@ -1,0 +1,73 @@
+:host {
+    display: block;
+}
+
+.address {
+    border: 1px solid var(--lightgray);
+    padding: 10px;
+    position: relative;
+    margin: 10px 0;
+    height: auto;
+}
+
+.address.selected {
+    border: 1px solid var(--header-color);
+}
+
+.address .delete-btn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+mat-icon {
+    color: var(--darkgray);
+    font-size: 20px;
+}
+
+.address_comp ::ng-deep .mat-list-item-content {
+    padding: 0 !important;
+}
+
+.address address {
+    max-width: 400px;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.address.selected {
+    border: 1px solid var(--primarybg);
+    background-color: rgba(107, 162, 37, 0.1);
+}
+
+.stored-address h3 {
+    margin: 20px 0 0;
+}
+
+.address>span {
+    display: none;
+}
+
+.address.selected>span {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    color: var(--primarybg);
+}
+
+.back-btn {
+    padding: 5px 15px;
+}
+
+.back-btn,
+.edit-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.edit-btn {
+    left: initial;
+    right: 10px;
+}

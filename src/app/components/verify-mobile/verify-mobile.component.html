@@ -1,0 +1,41 @@
+<mat-horizontal-stepper [linear]="false" #stepper>
+    <mat-step>
+        <ng-template matStepLabel>Get mobile number</ng-template>
+        <form novalidate (submit)="sendOtp()" #mobileForm="ngForm">
+            <mat-form-field class="mr-3" style="max-width: 250px;">
+                <mat-label>Phone</mat-label>
+                <span matPrefix class="pr-2">+ 91 -</span>
+                <input matInput required type="text" [(ngModel)]="user.mobile" name="mobile" #cust #mobile="ngModel" pattern="^([6-9]{1}[0-9]{9})$" placeholder="Ex. 8056190788" />
+                <mat-error *ngIf="mobile.invalid && !mobile.untouched">
+                    Enter valid phone number
+                </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" [disabled]="mobileForm.invalid || isLoading">
+        <span *ngIf="isLoading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+        Continue
+      </button>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Verify</ng-template>
+        <form class="mt-2 z-10 text-left" novalidate (submit)="verify()" #verifyForm="ngForm" style="width:250px;">
+            <p class="alert alert-danger mt-1 mb-1 text-left" *ngIf="verifyForm.valid && errorMessage && !isLoading">
+                {{ errorMessage }}
+            </p>
+            <div>
+                <em>Enter 4 digit OTP sent to your mobile</em>
+            </div>
+            <otp-input class="w-75 d-inline-block" [value]="user.pin" (change)="onPinChange($event)" #pinTxt>
+            </otp-input>
+            <input type="hidden" required [(ngModel)]="user.pin" pattern="^([0-9]{4})$" name="pin" />
+            <div class="step-actions mt-3 text-left">
+                <button mat-raised-button color="primary" [disabled]="verifyForm.invalid" class="ml-2 pr-2">
+          <span *ngIf="isLoading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span>VERIFY</span>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+            </div>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>

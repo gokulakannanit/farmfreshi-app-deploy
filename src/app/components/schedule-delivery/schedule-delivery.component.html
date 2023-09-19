@@ -1,0 +1,31 @@
+<div class="mt-3 mb-3">
+    <mat-accordion multi>
+        <mat-expansion-panel (opened)="step = 0" [expanded]="step === 0" *ngIf="hour < 12">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Today </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-radio-group aria-label="Select delivery schedule" [(ngModel)]="schedule" name="schedule">
+                <mat-radio-button value="01" [disabled]="hour>=6">6-8 AM</mat-radio-button>
+                <mat-radio-button value="02" [disabled]="hour>=8">8-10 AM</mat-radio-button>
+                <mat-radio-button value="03" [disabled]="hour>=10">10-12 PM</mat-radio-button>
+                <mat-radio-button value="04" [disabled]="hour>=12">12-2 PM</mat-radio-button>
+            </mat-radio-group>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="step = 1" [expanded]="step === 1">
+            <mat-expansion-panel-header>
+                <mat-panel-title> Tomorrow </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-radio-group aria-label="Select delivery schedule" [(ngModel)]="schedule" name="schedule">
+                <mat-radio-button value="11">6-8 AM</mat-radio-button>
+                <mat-radio-button value="12">8-10 AM</mat-radio-button>
+                <mat-radio-button value="13">10-12 PM</mat-radio-button>
+                <mat-radio-button value="14">12-2 PM</mat-radio-button>
+            </mat-radio-group>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<p *ngIf="errorMsg" class="text-left text-danger">{{errorMsg}}</p>
+<button mat-raised-button color="primary" class="mt-2 ml-2" (click)="continue()">
+  <span>Continue</span>
+  <mat-icon>keyboard_arrow_right</mat-icon>
+</button>

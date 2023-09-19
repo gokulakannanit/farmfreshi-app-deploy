@@ -1,0 +1,103 @@
+<div class="mt-2">
+    <app-category></app-category>
+
+    <!--Baanner-->
+    <carousel fxHide fxShow.md fxShow.lg class="banner" navigationInside="true" *ngIf="bannerItems && bannerItems.length > 0">
+        <ng-template *ngFor="let item of bannerItems;" #cItem>
+            <div class="container carosuel-slide">
+                <img [src]="item.image" alt="Banner images" width="100%" height="100%" style="object-fit:fill;" />
+            </div>
+        </ng-template>
+    </carousel>
+    <!--End of Banner-->
+
+    <!--Why We-->
+    <div fxLayout="row wrap" fxLayoutAlign="space-around start" class="m-3 text-center">
+        <div class="why-we">
+            <img src="/assets/images/icons/delivery.png" height="50px" />
+            <div>
+                <h4 class="mb-1" style="color:var(--header-color);">Free Home Delivery On Orders Over {{500 | currency: 'INR'}}
+                </h4>
+                <span>Stay home, get relax, receive order. Pay less for order over {{200 | currency:'INR'}}</span>
+            </div>
+        </div>
+        <div class="why-we">
+            <img src="/assets/images/icons/butcher.png" height="50px" />
+            <div>
+                <h4 class="mb-1" style="color:var(--header-color);">Order By Cut By Our Master Butchers
+                </h4>
+                <span>Variety of cuts available in Chicken, Meat and Fish, just buy, cook and enjoy tasty
+          meal.</span>
+            </div>
+        </div>
+        <div class="why-we">
+            <img src="/assets/images/icons/schedule.png" height="50px" />
+            <div>
+                <h4 class="mb-1" style="color:var(--header-color);">Choose Your Delivery Schedule As You Like
+                </h4>
+                <span>Stay home, get relax, receive order and cook on your flexible timing.</span>
+            </div>
+        </div>
+    </div>
+
+    <!--End of Why We-->
+
+
+    <!--Begin of our products-->
+    <div fxLayout="column" fxLayoutAlign="start stretch" class="mt-5">
+        <h2 class="text-center section-title m-0 mb-3">
+            Our Quality Meat
+        </h2>
+        <div class="w-100">
+            <carousel>
+                <ng-template *ngFor="let item of category" #cItem>
+                    <mat-card class="brand" ngClass.xs="sm" (click)="onRoute(item.link)">
+                        <img mat-card-image [src]="item.thumb" [alt]="item.title" height="150px" style="object-fit: cover;" />
+                        <mat-card-content>
+                            <label>
+                <div>{{item.title}}</div>
+                <span class="sub-title">{{item.subTitle}}</span>
+              </label>
+                            <div>
+                                {{item.description}}
+                            </div>
+                        </mat-card-content>
+                    </mat-card>
+                </ng-template>
+            </carousel>
+        </div>
+    </div>
+
+    <!--End of our products-->
+
+
+    <!--Begin of our products-->
+    <div fxLayout="column" fxLayoutAlign="start stretch" class="mt-5">
+        <h2 class="text-center section-title m-0 mb-3">
+            Besties of tasty meat
+        </h2>
+        <div class="text-center">
+            <mat-tab-group class="d-inline-block carousel-tabs" ngClass.xs="sm" color="primary" (selectedIndexChange)="changeVarient($event)">
+                <mat-tab *ngFor="let item of productByVarients " [label]="item.label"></mat-tab>
+            </mat-tab-group>
+        </div>
+        <div *ngIf="isLoadingVarients else productContainer" class="w-50 loader-varients">
+            <mat-progress-spinner color="secondary" mode="indeterminate" diameter="60" style="margin: 30px auto;">
+            </mat-progress-spinner>
+        </div>
+
+        <ng-template #productContainer>
+            <carousel>
+                <ng-template *ngFor="let product of carouselProducts" #cItem>
+                    <app-product-card class="mr-3 ml-3" [product]="product" model="home"></app-product-card>
+                </ng-template>
+            </carousel>
+        </ng-template>
+    </div>
+
+    <!--End of our products-->
+
+    <!--Receipe-->
+    <app-video-list></app-video-list>
+    <!--End of Receipe-->
+</div>

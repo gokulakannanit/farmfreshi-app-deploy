@@ -1,0 +1,95 @@
+:host {
+    display: block;
+}
+
+.carosuel-slide {
+    width: 100vw;
+    height: 200px;
+}
+
+.carousel-tabs {
+    max-width: 420px;
+}
+
+.carousel-tabs.sm {
+    max-width: 100%;
+}
+
+.carousel-tabs ::ng-deep mat-tab-header {
+    border-bottom: none;
+}
+
+.carousel-tabs ::ng-deep .mat-tab-label {
+    padding: 10px;
+    min-width: 100px;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.carousel-tabs ::ng-deep .mat-tab-label-active.mat-tab-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--header-color);
+    opacity: 1;
+    padding-top: 15px;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.why-we {
+    max-width: 320px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 6px;
+    margin-top: 10px;
+    border: 1px solid #ebebeb;
+}
+
+.brand {
+    width: 300px;
+    height: 280px;
+    transform: scale(0.8);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.brand:hover {
+    transform: scale(0.9);
+}
+
+.sm.brand {
+    width: 90vw;
+    height: 280px;
+    max-width: 360px;
+    transform: scale(1);
+    margin: 0 10px 10px;
+    box-sizing: border-box;
+}
+
+.loader-varients {
+    margin: 0 auto;
+    height: 180px;
+}
+
+.brand label {
+    position: absolute;
+    width: 220px;
+    left: -8px;
+    top: 15px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--white);
+    padding: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: top 0.3s;
+}
+
+.brand:hover label {
+    top: 75px;
+}
+
+.sub-title {
+    /* color: var(--header-color); */
+    color: #ffff00;
+    font-size: 10px;
+}

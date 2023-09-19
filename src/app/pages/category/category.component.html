@@ -1,0 +1,39 @@
+<div class="m-3" ngClass.lt-sm="sm">
+    <h2 class="title">
+        <span class="text-capitalize">{{selectedCategory.title}}</span>
+        <a routerLink="/home" class="back-btn">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+            <span>Back</span>
+        </a>
+    </h2>
+    <mat-progress-bar *ngIf="isLoading else productContainer" color="Primary" mode="indeterminate">
+    </mat-progress-bar>
+    <ng-template #productContainer>
+        <div *ngIf="products.length>0 else errorMsgCont">
+            <div fxLayout="row wrap">
+                <mat-form-field class="search-txt">
+                    <mat-label class="text-left">Filter Products</mat-label>
+                    <input matInput (keyup)="doFilter()" (blur)="doFilter()" placeholder="Boneless | Skinless" [(ngModel)]="searchText" />
+                </mat-form-field>
+                <label class="text-left" fxFlex="auto" *ngIf="productList.length > 0">
+          <span class="result_msg text-info">Showing {{productList.length}} Results</span>
+        </label>
+            </div>
+            <div fxLayout="row wrap" fxLayoutAlign="start space-around" fxLayoutAlign.lt-sm="space-around space-around">
+                <app-product-card *ngFor="let product of productList" [listMode]="listMode" [product]="product">
+                </app-product-card>
+            </div>
+        </div>
+
+        <ng-template #errorMsgCont>
+            <div class="text-center mt-5 pt-5">
+                <img [src]="selectedCategory.errorImage" style="opacity: 0.7;" height="150px" />
+                <p class="mt-3">
+                    <span>{{selectedCategory.errorMessage}} </span>
+                    <span class="text-warn d-block">-- LAUCHING SOOOON --</span>
+                </p>
+            </div>
+        </ng-template>
+
+    </ng-template>
+</div>

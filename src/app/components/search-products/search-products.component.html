@@ -1,0 +1,33 @@
+<div class="search" ngClass.xs="sm" ngClass.sm="sm">
+    <mat-form-field class="white-txt" floatLabel="never">
+        <mat-icon matPrefix>search</mat-icon>
+        <input #searchTxtOuter matInput [(ngModel)]="searchVal" placeholder="Search Product" (keyup)="openSearchPopover($event)" />
+    </mat-form-field>
+</div>
+
+<app-popover #searchPopover noArrow="true" ngClass.xs="sm" title="Search Product">
+    <div class="search_txt">
+        <mat-form-field floatLabel="never">
+            <mat-icon matPrefix>search</mat-icon>
+            <input #searchTxt matInput [(ngModel)]="searchVal" placeholder="Search Products" />
+        </mat-form-field>
+    </div>
+    <h4 mat-subheader class="title" title="Showing Result for {{ searchVal }}">
+        <span class="search-value text-truncate">Showing Result for {{ searchVal }}</span>
+    </h4>
+    <mat-list class="search_popover" ngClass.xs="sm">
+        <mat-list-item tabindex="0" fxLayout="row" fxLayoutAlign="center center" *ngFor="let product of products | filter:searchVal" class="p-1">
+            <img [src]="product.thumb" [alt]="product.title" width="60px" class="p-1" />
+            <div class="text-left desc" fxFlex="auto">
+                <div>{{ product.title }}</div>
+                <div class="small text-truncate-single">{{ product.description }}</div>
+            </div>
+            <span class="unit">{{ product.unit }} {{ product.unitType }}</span>
+            <div fxLayout="column">
+                <span class="amount">{{ product.price | currency:'INR' }}</span>
+                <span class="amount strikethrough small" *ngIf="product.price !== product.mrp">{{ product.mrp | currency:'INR' }}</span>
+            </div>
+            <app-cart [product]="product" mode="simple"></app-cart>
+        </mat-list-item>
+    </mat-list>
+</app-popover>

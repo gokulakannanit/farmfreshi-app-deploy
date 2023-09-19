@@ -1,0 +1,31 @@
+:host {
+    display: block;
+    overflow-x: hidden;
+}
+
+h2.title {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.back-btn {
+    position: absolute;
+    right: 20px;
+    font-size: 14px;
+}
+
+app-product-card {
+    margin-right: 40px;
+}
+
+.result_msg {
+    display: inline-block;
+    margin: 20px;
+}
+
+.sm app-product-card {
+    margin-right: 0px;
+}

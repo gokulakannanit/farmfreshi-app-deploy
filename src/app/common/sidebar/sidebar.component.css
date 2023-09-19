@@ -1,0 +1,43 @@
+:host {
+    display: block;
+    z-index: 999;
+    position: fixed;
+    width: 100%;
+}
+
+mat-sidenav {
+    width: 30%;
+    min-width: 420px;
+    background: var(--secondarybg);
+}
+
+mat-sidenav.sm {
+    width: 100%;
+    min-width: 300px;
+}
+
+::ng-deep .mat-drawer-backdrop {
+    height: 100vh;
+}
+
+.mat-drawer-container {
+    overflow: visible;
+}
+
+mat-sidenav .head {
+    padding: 0 30px 0 10px;
+}
+
+mat-sidenav .head .close {
+    position: absolute;
+    top: -2px;
+    right: 10px;
+    opacity: 1;
+    color: var(--white);
+}
+
+.sidebar-content {
+    height: calc(100% - var(--header-height));
+    overflow: hidden;
+    overflow-y: auto;
+}

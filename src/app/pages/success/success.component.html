@@ -1,0 +1,64 @@
+<div class="box-s-b bg-white p-2 mt-2 mb-5">
+    <div class="noprint">
+        <p class="text-center mt-5">
+            <mat-icon style="font-size:60px;height: 60px;width:60px;" color="secondary">check_circle</mat-icon>
+            <span class="mt-3 mb-3 d-block">Thanks for ordering meat with us. You'll receive SMS for order confirmation and
+        follow
+        by
+        updates.</span>
+            <span class="p-2" style="border-radius:6px;background-color:#efefef;">Order No # <b>{{orderData.id}}</b></span>
+            <span class="mt-5 d-block">In case of any queries reach us by our communication channels like email, phone or
+        chat.</span>
+        </p>
+        <div class="mt-2 text-center mb-3" fxLayout="row" fxLayoutAlign="start start">
+            <div fxFlex="auto" class="text-center">
+                <a routerLink="/home" mat-button>
+                    <mat-icon>shopping_cart</mat-icon><span>Continue Shopping</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="mt-2 print-only" style="max-width: 320px;margin:20px auto;">
+        <h2 class="text-center" style="border-bottom:1px solid #ccc;padding-bottom:10px;margin-bottom:10px;">
+            <img src="/assets/images/logo.png" class="logo" />
+            <span style="line-height:50px;font-size:14px;margin-left:10px;display: inline-block;margin-top:10px;">THE
+        MEAT SHOP</span>
+        </h2>
+        <h3 class="text-center" style="font-size:12px;">
+            CASH RECEIPT
+        </h3>
+        <div fxLayout="row" fxLayoutAlign="start start" style="font-size:11px;">
+            <div>
+                <span>ORDER NO : </span>
+                <span class="d-inline-block p-2">{{orderData.id}}</span>
+            </div>
+            <div fxFlex="auto" class="text-right">
+                <span>{{orderData.timeStamp | date:'short'}}</span>
+            </div>
+        </div>
+        <div style="font-size:11px;">
+            <div class="mt-3" fxLayout="row" fxLayoutAlign="start start" style="border-bottom:1px solid #ccc;border-top:1px solid #ccc;">
+                <div fxFlex="32%" class="text-center p-2">ITEM</div>
+                <div fxFlex="15%" class="text-center p-2">COUNT</div>
+                <div fxFlex="18%" class="text-center p-2">UNIT</div>
+                <div fxFlex="18%" class="text-center p-2">PRICE</div>
+                <div fxFlex="18%" class="text-right p-2">TOTAL</div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" *ngFor="let item of cart">
+                <div fxFlex="32%" class="text-center p-2">{{item.product.title}}</div>
+                <div fxFlex="15%" class="text-center p-2">{{item.count}}</div>
+                <div fxFlex="18%" class="text-center p-2">{{item.product.unit + item.product.unitType}}</div>
+                <div fxFlex="18%" class="text-center p-2">{{item.product.price}}</div>
+                <div fxFlex="18%" class="text-right p-2 pl-3">{{item.product.price * item.count}}</div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" style="border-top:1px solid #ccc">
+                <div fxFlex="75%" class="text-right p-2">TOTAL :</div>
+                <div fxFlex="25%" class="text-right p-2">{{total | currency:'INR'}}</div>
+            </div>
+        </div>
+        <div class="mt-5">
+            <div class="text-center mb-1" style="font-size:10px">SAVE PAPER - SAVE EARTH</div>
+            <div class="text-center mb-1" style="font-size:11px">FARM FRESHI THANKING YOU FOR SHOPPING WITH US</div>
+        </div>
+    </div>
+</div>

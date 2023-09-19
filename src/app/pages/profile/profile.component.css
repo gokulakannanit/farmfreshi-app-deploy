@@ -1,0 +1,51 @@
+:host {
+    display: block;
+}
+
+.edit-form .column {
+    width: 320px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+.edit-form .column h3 {
+    margin: 0 0 10px;
+    background-color: var(--header-color);
+    color: var(--white);
+    font-size: 14px;
+    position: relative;
+}
+
+.edit-form .column h3 a {
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+.edit-form .column a {
+    display: inline-block;
+    line-height: 26px;
+    vertical-align: middle;
+}
+
+.edit-form .column a mat-icon {
+    font-size: 14px !important;
+    line-height: 26px;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+.edit-form .column label {
+    display: inline-block;
+    line-height: 26px;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.sm .edit-form .column a {
+    display: block;
+}
+
+.sm .column {
+    margin-top: 20px;
+}

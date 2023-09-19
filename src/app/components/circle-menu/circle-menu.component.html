@@ -1,0 +1,16 @@
+<div ngClass.lt-sm="sm">
+    <div class="cdk-overlay-backdrop cdk-overlay-dark-backdrop cdk-overlay-backdrop-showing" *ngIf="openChannel" (click)="toggleMe()">
+    </div>
+    <label class="box-s-b" (click)="toggleMe()">
+    <mat-icon>question_answer</mat-icon>
+  </label>
+    <nav class="menu box-s-b">
+        <ul [ngClass]="{'openChannel': openChannel}">
+            <li class="menu-item" *ngFor="let channel of channels">
+                <a [href]="channel.link" target="_blank" (click)="toggleMe()">
+                    <mat-icon>{{channel.icon}}</mat-icon>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

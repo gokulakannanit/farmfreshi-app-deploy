@@ -1,0 +1,213 @@
+{
+    "delivery": {
+        "schedule": [{
+            "enabled": true,
+            "visible": true
+        }, {
+            "enabled": true,
+            "visible": true
+        }, {
+            "enabled": true,
+            "visible": true
+        }, {
+            "enabled": true,
+            "visible": true
+        }],
+        "charges": [15, 10],
+        "COD": 200
+    },
+    "banner": [{
+        "image": "/assets/images/banner/banner2.png",
+        "link": ""
+    }, {
+        "image": "/assets/images/banner/catch_fish_animated.gif",
+        "link": ""
+    }],
+    "videoList": [{
+            "thumb": "https://i.ytimg.com/vi/NmFUdSki808/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB6WXAjar8FQAFuHwv0WRrjfrjeKw",
+            "video": "https://www.youtube.com/embed/y-1o2OGOlxo?controls=1&amp;start=8&amp;autoplay=1&amp;showinfo=0&amp;wmode=transparent",
+            "title": "Chicken Pickel",
+            "time": "3:48",
+            "description": "This is very simple and easy method and tastes very well. This goes well with ketchup or mayo. This dish will be suitable for a small party at home and can be easily  made with simple ingredients. Do try this at home and enjoyyy!!"
+        },
+        {
+            "thumb": "https://i.ytimg.com/vi/mvJa_EtJWJ4/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDbBS-EZqe8nfAPQfD78a96m6W6Hg",
+            "video": "https://www.youtube.com/embed/y-1o2OGOlxo?controls=1&amp;start=8&amp;autoplay=1&amp;showinfo=0&amp;wmode=transparent",
+            "title": "Butter Chicken Gravy",
+            "time": "3:48",
+            "description": "Restaurant style Butter Chicken gravy at home with simple ingredients. This goes well with chappati , naan , butter naan , garlic naan. The chicken is cooked in butter so its juicy, tender and aromatic. Do try this gravy at home and enjoy!!!"
+        },
+        {
+            "thumb": "https://i.ytimg.com/vi/C45MaZqzLAA/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAPh139srmo6pQfnNDohC-cpvUYOA",
+            "video": "https://www.youtube.com/embed/y-1o2OGOlxo?controls=0&amp;start=8&autoplay=1",
+            "title": "Mutton Kulambu",
+            "time": "3:48",
+            "description": "We are going to learn about a tasty yet easy mutton recipe in pressure cooker. Mutton is a rich source of high-quality protein and  also an outstanding source of many vitamins and minerals, including iron, zinc, and vitamin B12."
+        },
+        {
+            "thumb": "https://i.ytimg.com/vi/J06BgunIq6Q/hq720.jpg?sqp=-oaymwEZCNAFEJQDSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLC6mcktPaavLYzOc3HIAqJSu1DzMQ",
+            "video": "https://www.youtube.com/embed/y-1o2OGOlxo?controls=0&amp;start=8&autoplay=1",
+            "title": "Mutton Vathakal",
+            "time": "3:48",
+            "description": "This is very simple and easy method and tastes very well. This goes well with ketchup or mayo. This dish will be suitable for a small party at home and can be easily  made with simple ingredients. Do try this at home and enjoyyy!!"
+        },
+        {
+            "thumb": "https://i.ytimg.com/vi/y-1o2OGOlxo/hq720.jpg?sqp=-oaymwEZCNAFEJQDSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCLiZRREDAVhnQIpclvGSr5k_hEtA",
+            "video": "https://www.youtube.com/embed/y-1o2OGOlxo?controls=0&amp;start=8&autoplay=1",
+            "title": "Chicken Nuggets",
+            "time": "3:48",
+            "description": "Chicken nuggets at home easily. This is one of the easiest and tastiest recipe which we can do at home. Do try this at home and enjoy!"
+        }
+    ],
+    "place": {},
+    "productVarients": [{
+            "label": "Top Selling",
+            "products": "1,2,3"
+        },
+        {
+            "label": "Trends",
+            "products": "1,8,9"
+        },
+        {
+            "label": "Flavoured",
+            "products": "1,2,3"
+        },
+        {
+            "label": "Deals",
+            "products": "1,2,3"
+        }
+    ],
+    "categories": [{
+            "id": 1,
+            "image": "/assets/images/category/chicken.svg",
+            "thumb": "/assets/images/category/chicken.png",
+            "link": "/category/1",
+            "title": "Chicken",
+            "subTitle": "Fresh Chicken Cuts",
+            "description": "Rich in Protein – It's a great source of lean, low fat protein which contribute to muscle growth and development. That protein also helps support a healthy body weight and aids weight loss.",
+            "active": true
+        },
+        {
+            "id": 2,
+            "image": "/assets/images/category/goat.svg",
+            "thumb": "/assets/images/category/lamp.png",
+            "link": "/category/2",
+            "title": "Goat / lamp",
+            "subTitle": "Fresh Mutton Cuts",
+            "description": "Meat is rich source of high-quality protein, but it is also an outstanding source of many vitamins and minerals, including iron, zinc, and vitamin B12.",
+            "active": true
+        },
+        {
+            "id": 5,
+            "image": "/assets/images/category/fish.svg",
+            "thumb": "/assets/images/category/fish.png",
+            "link": "/category/5",
+            "title": "Sea foods",
+            "subTitle": "Fresh Sea Water Fish",
+            "description": "Fish is filled with omega-3 fatty acids and vitamins such as D and B2 (riboflavin). Fish is rich in calcium and phosphorus and a great source of minerals, such as iron, zinc, iodine, magnesium, and potassium.",
+            "active": false,
+            "errorImage": "/assets/images/category/upcoming/seafood.svg",
+            "errorMessage": "Farm Freshi Searching Good Fresh Fish"
+        },
+        {
+            "id": 3,
+            "image": "/assets/images/category/eggs.svg",
+            "thumb": "/assets/images/category/eggs.png",
+            "link": "/category/3",
+            "title": "Eggs",
+            "subTitle": "Fresh Eggs for You",
+            "description": "Benefits of eating eggs every day provides high quality protein, they also contain 11 vitamins and minerals, omega-3 fatty acids and antioxidants.",
+            "active": true
+        },
+        {
+            "id": 4,
+            "image": "/assets/images/category/spices.svg",
+            "thumb": "/assets/images/category/spices.png",
+            "link": "/category/4",
+            "title": "Masala",
+            "subTitle": "Home Made Masala & Spices From Mountain",
+            "description": "Main benefit of adding garam masala to your food is that it stimulates appetite and boosts digestion by promoting release of gastric juices in the stomach.",
+            "active": true
+        },
+        {
+            "id": 6,
+            "image": "/assets/images/category/marinates.svg",
+            "thumb": "/assets/images/category/marinates.png",
+            "link": "/category/6",
+            "title": "Marinades",
+            "subTitle": "Tasty Marinates you like",
+            "description": "Master chef prepared marinades that makes you feel eating juicy meat, try once and feel the great taste that you never tasted before.",
+            "active": false,
+            "errorImage": "/assets/images/category/upcoming/marinates.svg",
+            "errorMessage": "Farm Freshi Searching Chef For Tasty Marinates"
+        },
+        {
+            "id": 7,
+            "image": "/assets/images/category/combo.svg",
+            "thumb": "/assets/images/category/combo.png",
+            "link": "/category/7",
+            "title": "Combos",
+            "subTitle": "Perfect Combo For Perfect Meal",
+            "description": "",
+            "active": false,
+            "errorImage": "/assets/images/category/upcoming/marinates.svg",
+            "errorMessage": "Farm Freshi Searching Chef For Tasty Marinates"
+        }
+    ],
+    "communication": [{
+            "name": "chat",
+            "link": "https://wa.me/918056190788/",
+            "icon": "chat",
+            "enabled": true,
+            "mobile": true
+        },
+        {
+            "name": "mail",
+            "link": "mailto: farmfreshi@farmfreshi.com",
+            "icon": "mail",
+            "enabled": true,
+            "mobile": true
+        },
+        {
+            "name": "phone",
+            "link": "tel: +918056190788",
+            "icon": "phone",
+            "enabled": true,
+            "mobile": true
+        }
+    ],
+    "footerLinks": [{
+        "title": "Terms and Conditions",
+        "link": ""
+    }, {
+        "title": "Contact Us",
+        "link": ""
+    }, {
+        "title": "FAQ's",
+        "link": ""
+    }, {
+        "title": "Our Stores",
+        "link": ""
+    }],
+    "appLink": [{
+        "tite": "",
+        "icon": "",
+        "link": "",
+        "visible": true
+    }],
+    "socialLink": [{
+            "title": "facebook",
+            "link": "",
+            "icon": "",
+            "enabled": true,
+            "mobile": true
+        },
+        {
+            "title": "facebook",
+            "link": "",
+            "icon": "",
+            "enabled": true,
+            "mobile": true
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+:host {
+    display: block;
+}
+
+.catslide {
+    min-width: 900px;
+}
+
+.noSidebar {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.mat-card {
+    cursor: pointer;
+    width: 120px;
+    padding-top: 30px;
+    background-color: #444;
+    color: var(--lightgray);
+    margin-bottom: 20px;
+    min-height: 70px;
+    padding: 18px 10px;
+    transition: transform 0.2s;
+}
+
+.mat-card img {
+    margin-top: -10px;
+    opacity: 0.8;
+}
+
+mat-card-title {
+    opacity: 0.8;
+}
+
+mat-card:hover {
+    transform: scale(1.1);
+}
+
+.mat-nav-list .mat-list-item:hover::after {
+    content: '';
+    width: 5px;
+    height: 100%;
+    background-color: var(--header-color);
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.sm .mat-card {
+    width: 100px;
+    padding: 10px 5px;
+}
+
+.sm .mat-card img {
+    margin-bottom: 5px;
+    margin-top: -5px;
+}

@@ -1,0 +1,39 @@
+<mat-card class="product-card {{model}}" ngClass.lt-sm="sm" [ngClass]="{'small': listMode}" *ngIf="product.selected">
+    <img mat-card-image [src]="product.selected.thumb" />
+    <div class="cr cr-top cr-left cr-red" *ngIf="getOffer(product.selected) > 0">{{getOffer(product.selected)}} % OFF
+    </div>
+    <mat-card-title class="product-title">{{product.selected.title}}</mat-card-title>
+    <mat-card-subtitle class="product-title text-truncate" [title]="product.selected.description">
+        {{product.selected.description}}
+    </mat-card-subtitle>
+    <mat-card-content>
+        <div class="unit-selector">
+            <span class="mr-2">Weight : </span>
+            <span class="text-capitalize unit" style="line-height:50px;" *ngIf="product.options.length === 1; else unitList">
+        {{ product.selected.unit }} {{ product.selected.unitType }}
+      </span>
+            <ng-template #unitList>
+                <mat-form-field style="margin-top:-10px;max-width:100px;">
+                    <mat-select role="listbox" [(value)]="product.selected">
+                        <mat-option class="text-capitalize" role="listitem" tabindex="0" *ngFor="let p of product.options" [value]="p">
+                            {{ p.unit }} {{ p.unitType }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </ng-template>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start center">
+            <div fxFlex="auto">
+                <div class="bold text-primary">
+                    {{ product.selected.price | currency: "INR" }}
+                </div>
+                <div class="strikethrough small" *ngIf="product.selected.price !== product.selected.mrp">
+                    {{ product.selected.mrp | currency: "INR" }}
+                </div>
+            </div>
+            <div>
+                <app-cart [product]="product.selected"></app-cart>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

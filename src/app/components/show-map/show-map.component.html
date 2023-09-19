@@ -1,0 +1,6 @@
+<agm-map [latitude]="selectedCity.lat" [longitude]="selectedCity.lng" [zoom]="selectedCity.zoom">
+    <agm-marker [latitude]="selectedCity.lat" [longitude]="selectedCity.lng" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)">
+    </agm-marker>
+</agm-map>
+<button class="mt-3" mat-raised-button color="primary" [disabled]="isLoading" (click)="storeLocation()">Select
+  Location</button>

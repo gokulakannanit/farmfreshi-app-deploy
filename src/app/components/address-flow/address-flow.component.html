@@ -1,0 +1,41 @@
+<div>
+    <div class="mt-3" *ngIf="showAddress else locationSelector" style="max-width:320px;">
+
+        <div fxLayout="row">
+            <mat-icon>person_pin_circle</mat-icon>
+            <address class="text-left"> {{ selectedLocation.description }} </address>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="start start">
+            <mat-form-field>
+                <mat-label>Title</mat-label>
+                <input matInput type="text" [(ngModel)]="selectedLocation.title" name="myTitle" placeholder="Home | Work" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Landmark</mat-label>
+                <input matInput [(ngModel)]="selectedLocation.landmark" name="myLandmark" placeholder="Near Govt hosp" />
+            </mat-form-field>
+        </div>
+        <p class="text-danger small">
+            <em>Please help us to make delivery easy by providing above addtional information about this address.</em>
+        </p>
+
+        <button mat-raised-button color="primary" class="mt-2" (click)="continue()">
+      <span>Continue</span>
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    </button>
+        <a mat-button color="primary" class="ml-3 mt-2" (click)="onAddressChange()">
+            <mat-icon>edit</mat-icon>
+            <span>Change</span>
+        </a>
+    </div>
+    <ng-template #locationSelector>
+        <div>
+            <a class="edit-btn text-primary d-block mb-3 mt-3" (click)="onBack()">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+                <span>Back</span>
+            </a>
+            <location-selector></location-selector>
+        </div>
+    </ng-template>
+</div>

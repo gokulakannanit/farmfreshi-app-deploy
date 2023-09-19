@@ -1,0 +1,92 @@
+<div ngClass.xs="sm" ngClass.sm="lg">
+    <header class="top-bar">
+        <nav class="container p-0" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="header-left">
+                <button mat-button aria-label="top bar menu" (click)="leftSideNav.open()">
+          <mat-icon>menu</mat-icon>
+        </button>
+                <a mat-button routerLink="/" class="logo" title="farm freshi home" tabindex="0">
+                    <img src="/assets/images/logo.png" alt="farm freshi home" class="logo" />
+                </a>
+            </div>
+            <button mat-button #locationBtn class="address-selector" aria-label="select delivery location" tabindex="0" (click)="openLocationSelector($event)">
+        <mat-icon>person_pin_circle</mat-icon>
+        <span class="sm-no text-truncate-single">{{selectedLocation}} location</span>
+      </button>
+            <div class="header-center" fxFlex="auto">
+                <search-product></search-product>
+            </div>
+            <div>
+                <button class="login-btn" #loginBtn mat-button tabindex="0" (click)="openLoginWindow($event)" (keyup.enter)="$event.target.click()">
+          <span class="login-yes sm-no">
+            <span>My Account</span>
+            <mat-icon>keyboard_arrow_down</mat-icon>
+          </span>
+          <span class="login-no sm-no">
+            <span>Login</span>
+            <mat-icon>keyboard_arrow_right</mat-icon>
+          </span>
+          <mat-icon class="sm-yes">account_circle</mat-icon>
+        </button>
+
+                <button mat-button [ngClass]="{'shakeit': badgeUpdated}" class="cart" title="cart" tabindex="0" aria-label="My Cart" (click)="cartSideNav.open()">
+          <mat-icon aria-label="cart" [matBadge]="badgeCount" [matBadgeHidden]="badgeCount === 0" matBadgeSize="small"
+            matBadgeColor="accent">shopping_cart</mat-icon>
+        </button>
+            </div>
+        </nav>
+    </header>
+</div>
+<!--Start of Side bar category list-->
+<app-sidebar #leftSideNav position="start">
+    <app-category ngProjectAs="body" (closeme)="leftSideNav.close()" sidebar="true"></app-category>
+</app-sidebar>
+<!--End of Side bar category list-->
+<!--Start Cart Side Bar-->
+<app-sidebar #cartSideNav position="end">
+    <div class="userinfo" ngProjectAs="header">
+        <mat-icon aria-hidden="false" aria-label="cart">shopping_cart</mat-icon>
+        <span class="d-inline-block ml-2">MY CART</span>
+        <span *ngIf="badgeCount>0"> ( {{badgeCount}} Items )</span>
+    </div>
+    <cart-content ngProjectAs="body" (closeme)="cartSideNav.close()" sidebar="true"></cart-content>
+</app-sidebar>
+<!--End of Cart Side Bar-->
+
+<!--Start Cart Side Bar-->
+<app-sidebar #loginSideNav position="end">
+    <div ngProjectAs="header" class="login-header" ngClass.xs="sm">
+        <img src="/assets/images/logo.png" alt="farm freshi home" class="sm-yes mr-2 logo" />
+        <mat-icon class="sm-no mr-2">account_circle</mat-icon>
+        <span class="d-inline-block ml-2 mt-1">Login / Create Account</span>
+    </div>
+    <login #login ngProjectAs="body" (closeme)="loginSideNav.close()" sidebar="true" class="login-content"></login>
+</app-sidebar>
+<!--End of Cart Side Bar-->
+
+<app-popover #accountPopover noArrow="true">
+    <mat-nav-list role="list" class="account_menu">
+        <mat-list-item role="listitem" routerLink="/profile" (click)="closePopover()">
+            <mat-icon>account_circle</mat-icon> My Profile
+        </mat-list-item>
+        <mat-list-item role="listitem" (click)="changePin()">
+            <mat-icon>account_circle</mat-icon> Change PIN
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/order" (click)="closePopover()">
+            <mat-icon>shopping_cart</mat-icon> Your Orders
+        </mat-list-item>
+        <mat-list-item role="listitem" (click)="openAddressbook()">
+            <mat-icon>person_pin_circle</mat-icon> Address
+        </mat-list-item>
+        <mat-list-item role="listitem" routerLink="/cards" (click)="closePopover()">
+            <mat-icon>credit_card</mat-icon> Cards
+        </mat-list-item>
+        <mat-list-item role="listitem" (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>Logout
+        </mat-list-item>
+    </mat-nav-list>
+</app-popover>
+
+<app-popover #locationPopover title="Select Location">
+    <location-selector></location-selector>
+</app-popover>

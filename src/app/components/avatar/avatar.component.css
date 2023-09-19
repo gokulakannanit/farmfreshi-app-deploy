@@ -1,0 +1,70 @@
+:host {
+    display: inline-block;
+}
+
+.small {
+    margin-bottom: 0 !important;
+}
+
+.avatar.big {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: fill;
+}
+
+.mat-progress-spinner.mat-warn circle,
+.mat-spinner.mat-warn circle {
+    stroke: #6ba229 !important;
+}
+
+.progress_avatar {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    transform: scale(0.5);
+}
+
+.upload_avatar_btn {
+    color: white;
+    position: absolute;
+    z-index: 1;
+    top: calc(100% - 16px);
+    left: calc(50% - 13px);
+    width: 26px;
+    height: 26px;
+}
+
+mat-icon {
+    font-size: 16px !important;
+    line-height: 16px;
+    width: 16px;
+    height: 16px;
+    margin-top: -22px;
+}
+
+.upload mat-label {
+    padding-right: 15px;
+}
+
+.avatar img {
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+.avatar.big img {
+    width: 100px;
+    height: 100px;
+}
+
+.thumb-spinner {
+    width: 50px;
+    height: 50px;
+    z-index: 10;
+}

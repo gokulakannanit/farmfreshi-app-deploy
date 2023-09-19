@@ -1,0 +1,17 @@
+<div fxLayout="column" fxLayoutAlign="start stretch" class="mt-5">
+    <h2 class="text-center section-title m-0 mb-3">
+        Try Tasty Receipies
+    </h2>
+    <carousel>
+        <ng-template *ngFor="let receipe of recepies" #cItem>
+            <mat-card class="video-list bg-black-dark mb-3" ngClass.lt-sm="sm" (click)="openVideo(receipe)">
+                <img mat-card-image [src]="receipe.thumb" [alt]="receipe.title" />
+                <mat-card-title>{{receipe.title}}</mat-card-title>
+                <mat-card-content class="text-truncate">{{receipe.description}}
+                    <time>{{receipe.time}}</time>
+                    <mat-icon class="play">play_circle_outline</mat-icon>
+                </mat-card-content>
+            </mat-card>
+        </ng-template>
+    </carousel>
+</div>

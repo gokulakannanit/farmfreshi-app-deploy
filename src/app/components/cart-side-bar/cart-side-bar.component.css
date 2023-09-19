@@ -1,0 +1,94 @@
+:host {
+    display: block;
+    min-width: 360px;
+    height: 100%;
+}
+
+.sidebar-extendable {
+    height: calc(100% - 60px);
+}
+
+.inside .sidebar-extendable {
+    height: auto;
+}
+
+.cart-list {
+    padding: 10px 10px;
+    height: calc(100% - 100px);
+    overflow-y: auto;
+    width: calc(100% - 20px);
+}
+
+.inside .cart-list {
+    height: calc(100% - 100px);
+}
+
+.inside .checkout_button {
+    display: none;
+}
+
+.price_box {
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    color: var(--lightgray);
+}
+
+
+/* .sm .price_box {
+    width: calc(100% - 2rem);
+}
+
+.sm .checkout_button {
+    width: calc(100% - 2rem);
+} */
+
+button.remove-cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: scale(0.6);
+}
+
+.price-tag {
+    font-size: 16px;
+    width: 100%;
+    color: var(--darkgray);
+    font-weight: bold;
+}
+
+.empty_cart {
+    height: calc(100% - var(--header-height));
+}
+
+.empty_cart mat-icon {
+    display: inline-block;
+    font-size: 50px;
+    width: 50px;
+    height: 50px;
+    margin-top: 100px;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.cart-list>.mat-list-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--white);
+    margin-bottom: 10px;
+    height: 120px;
+    box-sizing: border-box;
+    border: 1px solid #dedede;
+    border-radius: 6px;
+}
+
+.cart-list>.mat-list-item {
+    font-size: 14px;
+    text-align: center;
+    min-width: 40px;
+    justify-content: center;
+    align-self: center;
+}
+
+.cart-list ::ng-deep .mat-list-item .mat-list-item-content {
+    width: 100%;
+    padding: 0;
+}

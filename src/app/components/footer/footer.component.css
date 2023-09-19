@@ -1,0 +1,40 @@
+:host {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+footer,
+footer a {
+    padding: 10px;
+    color: var(--white);
+}
+
+footer ul li {
+    display: inline-block;
+}
+
+footer ul li:not(:last-child) {
+    border-right: 1px solid var(--white);
+}
+
+footer a {
+    transition: transform 0.3s ease;
+}
+
+footer a:hover {
+    transform: scale(1.5);
+}
+
+.app-logo.android {
+    color: var(--header-color);
+}
+
+.app-logo {
+    margin: 10px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.app-logo:hover {
+    transform: scale(1.3);
+}

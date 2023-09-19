@@ -1,0 +1,97 @@
+<mat-horizontal-stepper [linear]="false" #stepper class="p-3 pt-3">
+    <mat-step>
+        <ng-template matStepLabel>Login / Register</ng-template>
+        <div class="text-center">
+            <img src="/assets/images/loader.gif" height="70px" />
+        </div>
+        <form class="z-10" novalidate #loginForm="ngForm" (submit)="checkUser()">
+            <div class="pt-3 pb-1">
+                <em>Join with us and get lot more benefits</em>
+                <br />
+                <br />
+                <em>
+          Redeem points, deals/offer updates, track orders and more.
+        </em>
+            </div>
+            <p class="alert alert-danger mt-1 mb-1 text-left" *ngIf="loginForm.valid && errorMessage && !isLoading">
+                {{ errorMessage }}
+            </p>
+            <div class="text-center">
+                <mat-form-field>
+                    <mat-label>Phone</mat-label>
+                    <span matPrefix class="d-inline-block mr-2 mb-1">+ 91 -</span>
+                    <input matInput type="text" required minlength="1" maxlength="10" name="mobile" #loginTxt pattern="^([6-9]{1}[0-9]{9})$" [(ngModel)]="user.mobile" #mobile="ngModel" placeholder="8056190788" />
+                    <mat-error *ngIf="mobile.invalid && !mobile.untouched">
+                        Enter valid phone number or email
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="step-actions mt-3 text-center">
+                <button mat-raised-button color="primary" [disabled]="loginForm.invalid" class="pl-4 d-inline-block">
+          <span *ngIf="isLoading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span>NEXT</span>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>Verify</ng-template>
+        <form class="z-10 text-center" novalidate (submit)="verifyUser()" #verifyForm="ngForm">
+            <header class="text-left">
+                <button type="button" mat-button color="secondary" class="pl-2">
+          <mat-icon>keyboard_arrow_left</mat-icon>
+          <span>Back</span>
+        </button>
+            </header>
+            <p class="alert alert-danger mt-1 mb-1 text-left" *ngIf="verifyForm.valid && errorMessage && !isLoading">
+                {{ errorMessage }}
+            </p>
+            <div>
+                <em *ngIf="!userExist">Your first time OTP sent to your mobile</em>
+                <br />
+                <br />
+                <em>Enter 4 digit PIN to verify</em>
+            </div>
+            <otp-input class="w-75 d-inline-block" [value]="user.pin" (change)="onPinChange($event)" #pinTxt>
+            </otp-input>
+            <input type="hidden" required [(ngModel)]="user.pin" pattern="^([0-9]{4})$" name="pin" />
+            <div class="step-actions mt-3 text-center">
+                <button mat-raised-button color="primary" [disabled]="verifyForm.invalid" class="ml-2 pr-2">
+          <span *ngIf="isLoading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span>VERIFY</span>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+                <br />
+                <a class="mt-3 d-inline-block" mat-button *ngIf="userExist" color="primary" (click)="forgotPassword()">
+          Forgot Pin
+        </a>
+            </div>
+        </form>
+    </mat-step>
+
+    <mat-step>
+        <ng-template matStepLabel>Set New Pin</ng-template>
+        <form class="mt-n5 z-10 text-center" novalidate #newPinForm="ngForm" (submit)="setNewPin()">
+            <div class="pt-1 pb-1">
+                <em>Hey thanks for joining with Farm Freshi.</em>
+                <br />
+                <br />
+                <em>
+          Please set your new pin for first time.
+        </em>
+            </div>
+            <otp-input class="w-75 d-inline-block" [value]="user.newPin" (change)="onNewPinChange($event)" #newPinTxt>
+            </otp-input>
+            <input type="hidden" required [(ngModel)]="user.newPin" pattern="^([0-9]{4})$" name="newPin" />
+            <div class="step-actions mt-3 text-center">
+                <button mat-raised-button color="primary" [disabled]="newPinForm.invalid" class="ml-2 pr-2">
+          <span *ngIf="isLoading" class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+          <span>SET NEW PIN</span>
+          <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+                <br />
+            </div>
+        </form>
+    </mat-step>
+</mat-horizontal-stepper>

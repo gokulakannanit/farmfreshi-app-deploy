@@ -1,0 +1,20 @@
+{
+    "/api": {
+        "target": "http://192.168.1.9",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": "/meat1/public"
+        },
+        "logLevel": "debug"
+    },
+    "/meat/images": {
+        "target": "http://192.168.1.9",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/meat": "/meat1/public"
+        },
+        "logLevel": "debug"
+    }
+}

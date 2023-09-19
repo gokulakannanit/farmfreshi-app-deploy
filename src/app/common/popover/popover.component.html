@@ -1,0 +1,15 @@
+<ng-template>
+    <mat-card class="app-popover" ngClass.xs="sm" [ngClass]="{'no-arrow': noArrow, 'animated bounceInDown': !noArrow}">
+        <mat-card-content cdkTrapFocus>
+            <mat-card-title class="top-bar">
+                <h2>
+                    <button style="position: absolute;top:0;left: 0;" mat-button (click)="close()" class="back" tabindex="0" cdkFocusInitial>
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </button>
+                    <span><img src="/assets/images/logo.png" class="logo" />{{title}}</span>
+                </h2>
+            </mat-card-title>
+            <ng-content></ng-content>
+        </mat-card-content>
+    </mat-card>
+</ng-template>

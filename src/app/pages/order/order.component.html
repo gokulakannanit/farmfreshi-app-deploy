@@ -1,0 +1,74 @@
+<div class="m-3">
+    <h2 class="p-2 bor-bt">Orders</h2>
+    <div class="text-center">
+        <mat-tab-group class="d-inline-block carousel-tabs" ngClass.xs="sm" color="primary" (selectedIndexChange)="loadOrder($event)">
+            <mat-tab label="Upcoming"></mat-tab>
+            <mat-tab label="Delivered"></mat-tab>
+        </mat-tab-group>
+    </div>
+    <ng-template #loader>
+        <div class="text-center w-50" style="margin:0 auto;">
+            <mat-progress-bar color="Primary" mode="indeterminate"></mat-progress-bar>
+        </div>
+    </ng-template>
+    <section class="order-list" *ngIf="!isLoading else loader" [ngClass]="{'delivered': selectedTab}">
+        <ng-template #noOrders>
+            <p class="text-center mt-3">
+                <span class="show-no">No Upcoming Orders</span>
+                <span class="show-yes">No Delivered Orders</span>
+            </p>
+        </ng-template>
+        <section class="timeline mt-2" *ngIf="orders.length > 0 else noOrders" ngClass.lt-sm="sm">
+            <article class="timeline__group" *ngFor="let order of orders;index as i">
+                <article class="timeline__box">
+                    <section class="timeline__date">
+                        <span class="timeline__day">{{order.deliveryDate | date:'dd'}}</span>
+                        <span class="timeline__month">{{order.deliveryDate | date:'MMM'}}</span>
+                    </section>
+                    <section class="timeline__post">
+                        <div class="mb-3 show-no">
+                            <div fxLayout="row" class="w-100 status-holder" fxLayoutGap="15px">
+                                <span fxFlex="25%" class="small" [ngClass]="{'selected': order.status==0}">
+                  <mat-icon>shopping_cart</mat-icon>Placed
+                </span>
+                                <span fxFlex="auto" class="small" [ngClass]="{'selected': order.status==1}">
+                  <mat-icon>shopping_cart</mat-icon>Preparing
+                </span>
+                                <span fxFlex="25%" class="small" [ngClass]="{'selected': order.status==2}">
+                  <mat-icon>pedal_bike</mat-icon>Dispatched
+                </span>
+                            </div>
+                            <mat-progress-bar color="Primary" mode="determinate" [value]="getProgress(order.status)">
+                            </mat-progress-bar>
+                        </div>
+                        <div fxLayout="row" fxLayoutAlign="center center">
+                            <span class="mr-2">Order Id:</span> # {{order.id}}
+                            <span fxFlex="auto" class="text-right mr-2">
+                {{ order.total | currency: "INR" }}
+              </span>
+                            <button mat-icon-button (click)="showOrderDetail(order)">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+              </button>
+                        </div>
+                        <section class="detail" [ngClass]="{'expand': order.expanded}">
+                            <div style="height: 30px;">
+                                <button mat-raised-button color="warn" aria-label="Cancel order" *ngIf="order.status==0" (click)="cancelOrder(order)">Cancel</button>
+                                <button style="float:right;" mat-button color="primary" aria-label="Repeat order" (click)="repeatOrder(order)">Repeat
+                  Order</button>
+                            </div>
+                            <section class="mt-3">
+                                <div class="cart-product" fxLayout="row" *ngFor="let item of productList">
+                                    <img class="p-1 mr-2" [src]="item.product.thumb" [alt]="item.product.title" width="70px" />
+                                    <div class="text-left desc" fxFlex="auto">
+                                        <div class="bold">{{ item.product.title }}</div>
+                                        <div>{{item.product.unit}} x {{item.count}} {{item.product.unitType}}</div>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+                    </section>
+                </article>
+            </article>
+        </section>
+    </section>
+</div>

@@ -1,0 +1,25 @@
+<div *ngIf="isLoading else loadContent" class="w-100">
+    <mat-progress-bar color="Primary" mode="indeterminate" class="w-100"></mat-progress-bar>
+</div>
+<ng-template #loadContent>
+    <span *ngIf="cities.length > 0 else elseContainer">
+    <mat-form-field *ngIf="cities.length > 1 else showCity">
+      <mat-label>Select City</mat-label>
+      <mat-select role="listbox" placeholder="Ex: Aruppukottai" [(ngModel)]="selectCity" (selectionChange)="onChange()">
+        <mat-option role="listitem" tabindex="0" *ngFor="let item of cities" [value]="item">
+          {{item.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <ng-template #showCity>
+      <div class="m-2 text-left justify-left">
+        <span class="bold">City: </span>
+    <span>{{selectCity.name}}</span>
+    </div>
+</ng-template>
+</span>
+<ng-template #elseContainer>
+    <span class="text-capitalize">No Cities Found, Please ask admin to add city.</span>
+</ng-template>
+</ng-template>
